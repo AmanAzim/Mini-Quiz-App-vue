@@ -8,11 +8,13 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <component v-bind:is="componentMode"
-                           v-on:answered="answered($event)"
-                           v-on:confirmed="componentMode='app-question'">
+                <transition name="flip" mode="out-in">
+                    <component v-bind:is="componentMode"
+                               v-on:answered="answered($event)"
+                               v-on:confirmed="componentMode='app-question'">
 
-                </component>
+                    </component>
+                </transition>
             </div>
         </div>
     </div>
