@@ -57,7 +57,7 @@
                         this.question = 'Oops, an Error occurred :/';
                 }
 
-                <!-- put 4 incorrect answers in 4 buttons-->
+                //put 4 incorrect answers in 4 buttons
                 this.btnData[0].answer = this.generateRandomNumber(correctAnswer - 10, correctAnswer + 10, correctAnswer);
                 this.btnData[0].correct = false;
 
@@ -70,7 +70,7 @@
                 this.btnData[3].answer = this.generateRandomNumber(correctAnswer - 10, correctAnswer + 10, correctAnswer);
                 this.btnData[3].correct = false;
 
-                <!-- Then randomly select one button from those 4 buttons with incorrect answers and overwrite it with correct answer-->
+                //Then randomly select one button from those 4 buttons with incorrect answers and overwrite it with correct answer
                 const correctButton = this.generateRandomNumber(0, 3);
                 this.btnData[correctButton].correct = true;
                 this.btnData[correctButton].answer = correctAnswer;
@@ -79,7 +79,8 @@
             generateRandomNumber(min, max, except){
                 const rndNumber=Math.round( Math.random()*(max-min) )+min;
                 console.log(min, max, rndNumber);
-                if (rndNumber == except) { <!-- Keep runing the function so that it return's a number which is not matching to the correct answer-->
+                if (rndNumber == except) //Keep runing the function so that it return's a number which is not matching to the correct answer
+                {
                     return this.generateRandomNumber(min, max, except);
                 }
                 return rndNumber;

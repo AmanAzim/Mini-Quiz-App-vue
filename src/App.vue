@@ -8,7 +8,11 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <component v-bind:is="componentMode"></component>
+                <component v-bind:is="componentMode"
+                           v-on:answered="answered($event)"
+                           v-on:confirmed="componentMode='app-question'">
+
+                </component>
             </div>
         </div>
     </div>
@@ -26,6 +30,16 @@
             return {
                 componentMode:'app-question',
             };
+        },
+        methods:{
+            answered(isCorrect){
+                if(isCorrect){
+                    this.componentMode='app-answer';
+                }else{
+                    this.componentMode='app-question';
+                    alert('Opps Wrong answer, try again');
+                }
+            }
         }
     }
 </script>
