@@ -48,16 +48,18 @@
 
 <style>
 .flip-enter{
-
+    opacity: 0;
 }
 .flip-enter-active{
     animation:flip-in 0.5s ease-out forwards;
+    transition: opacity 0.5s;
 }
 .flip-leave{
 
 }
 .flip-leave-active{
     animation:flip-out 0.5s ease-out forwards;
+    transition: opacity 0.5s;
 }
 @keyframes flip-out {
     from{
